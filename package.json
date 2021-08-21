@@ -1,12 +1,15 @@
 {
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src/socket.ts",
-    "start-prod": "tsc && node ./dist/socket.js"
+    "start": "ts-node-dev --respawn --transpile-only src/socket.server.single.ts",
+    "start-cluster": "ts-node-dev --respawn --transpile-only src/socket.server.cluster.ts",
+    "start-single-prod": "tsc && node ./dist/socket.server.single.js",
+    "start-cluster-prod": "tsc && node ./dist/socket.server.cluster.js"
   },
   "dependencies": {
+    "@socket.io/sticky": "^1.0.1",
     "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
-    "socket.io": "^3.1.0",
+    "socket.io": "^4.1.3",
     "socket.io-emitter": "^3.2.0",
     "socket.io-redis": "^6.0.1",
     "typescript": "^4.1.5"
@@ -14,7 +17,8 @@
   "devDependencies": {
     "@types/jsonwebtoken": "^8.5.0",
     "@types/redis": "^2.8.28",
-    "@types/socket.io": "^2.1.13",
+    "@types/socket.io": "^3.0.2",
+    "@types/node": "^15.6.0",
     "ts-node-dev": "^1.1.1"
   }
 }
