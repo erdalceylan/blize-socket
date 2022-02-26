@@ -3,7 +3,7 @@
 ## Installation
 
 ```shell
-git clone git@github.com:erdalceylan/blize-socket.git
+git clone https://github.com/erdalceylan/blize-socket.git
 
 cd blize-socket
 
