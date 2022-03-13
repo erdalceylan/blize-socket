@@ -13,7 +13,7 @@ export class IoEvents extends Server {
 
     private initialize(): void {
 
-        const publicKey = fs.readFileSync(__dirname +'/../rsa/public.crt', {encoding:'utf8', flag:'r'});
+        const publicKey = fs.readFileSync(process.env.SSL_PUBLIC_CRT_PATH, {encoding:'utf8', flag:'r'});
 
         this.on('connection', (socket) => {
             // socket re login after 30 minutes
