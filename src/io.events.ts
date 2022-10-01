@@ -38,29 +38,11 @@ export class IoEvents extends Server {
                         }
                     });
 
-                    socket.on('offer', (data: {to: User, offer: any}) => {
+                    socket.on('signal', (data: {to: User, signal: string}) => {
                         if (data?.to?.username) {
-                            this.to(data.to.username).emit('offer', {
+                            this.to(data.to.username).emit('signal', {
                                 from: user,
-                                offer: data.offer
-                            });
-                        }
-                    });
-
-                    socket.on('answer', (data: {to: User, answer: any}) => {
-                        if (data?.to?.username) {
-                            this.to(data.to.username).emit('answer', {
-                                from: user,
-                                answer: data.answer
-                            });
-                        }
-                    });
-
-                    socket.on('candidate', (data: {to: User, candidate: string}) => {
-                        if (data?.to?.username) {
-                            this.to(data.to.username).emit('candidate', {
-                                from: user,
-                                candidate: data.candidate
+                                signal: data.signal
                             });
                         }
                     });
